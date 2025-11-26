@@ -1,3 +1,18 @@
+Metadata-Version: 2.4
+Name: teams-ai-planner
+Version: 0.1.0
+Summary: Daily action planner that connects to Microsoft Teams, analyzes channel messages via AI, and suggests follow-up actions.
+Author: Workflow Copilot
+Project-URL: Homepage, https://github.com/example/teams-ai-planner
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: msal>=1.29.0
+Requires-Dist: openai>=1.53.0
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: pydantic>=2.9.2
+Requires-Dist: requests>=2.32.3
+Requires-Dist: rich>=13.9.2
+
 # Teams AI Action Planner
 
 This project bootstraps a practical workflow-copilot that connects to Microsoft Teams, scans recent channel messages with AI, and proposes concrete follow-up actions (for example, pinging someone for an update on an open request).
@@ -7,7 +22,6 @@ This project bootstraps a practical workflow-copilot that connects to Microsoft 
 - Microsoft Graph connector for pulling and posting Teams channel messages.
 - AI analyzer (OpenAI-compatible) that turns raw chats into structured action items.
 - CLI workflow with optional offline sample data, JSON export, and dry-run sending.
-- Heuristic fallback (`--fake-ai`) so you can demo the workflow without LLM credentials.
 - Modular design so you can swap the LLM provider or extend action execution.
 
 ## Getting Started
@@ -69,10 +83,8 @@ What happens:
 Try the flow without Graph credentials using the bundled sample payload:
 
 ```bash
-teams-ai-planner --offline-json samples/messages.sample.json --focus "Ops readiness" --fake-ai
+teams-ai-planner --offline-json samples/messages.sample.json --focus "Ops readiness"
 ```
-
-Add `--fake-ai` to skip OpenAI/Azure OpenAI. If you still want to use the live LLM while replaying cached data, omit that flag but keep `OPENAI_API_KEY` in your `.env`.
 
 ### Exporting plans
 
