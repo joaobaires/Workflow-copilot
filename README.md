@@ -15,10 +15,8 @@ This project bootstraps a practical workflow-copilot that connects to Microsoft 
 ### 1. Install dependencies
 
 ```bash
-cd /workspace
-python -m venv .venv
-source .venv/bin/activate
-pip install -e .
+npm install
+npm run build
 ```
 
 ### 2. Create an Azure AD app registration
@@ -45,7 +43,7 @@ OPENAI_MODEL=gpt-4o-mini
 # PLANNER_TIME_HORIZON_HOURS=6
 ```
 
-> 🔐 `Settings.from_env()` (see `src/teams_ai_planner/config.py`) loads `.env` automatically and validates required values.
+> 🔐 `loadSettings` (see `src/config.ts`) reads `.env` automatically and validates required values.
 
 ## Running the planner
 
@@ -60,9 +58,9 @@ teams-ai-planner \
 
 What happens:
 
-1. `GraphClient` (`src/teams_ai_planner/graph.py`) retrieves recent channel messages.
-2. `ActionPlanAnalyzer` (`src/teams_ai_planner/analyzer.py`) sends them to the configured LLM, requesting JSON-formatted actions.
-3. `DailyActionPlanner` (`src/teams_ai_planner/planner.py`) prints the suggested actions in a table and optionally sends follow-ups back to Teams.
+1. `GraphClient` (`src/graphClient.ts`) retrieves recent channel messages.
+2. `OpenAiAnalyzer` (`src/analyzers/openAiAnalyzer.ts`) sends them to the configured LLM, requesting JSON-formatted actions (or `RuleBasedAnalyzer` for `--fake-ai`).
+3. `DailyActionPlanner` (`src/planner.ts`) prints the suggested actions and optionally sends follow-ups back to Teams.
 
 ### Offline / demo mode
 

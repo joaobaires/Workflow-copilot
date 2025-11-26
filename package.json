@@ -1,0 +1,37 @@
+{
+  "name": "teams-ai-planner",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Daily action planner that connects to Microsoft Teams, analyzes channel messages with AI, and suggests follow-up tasks.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "teams-ai-planner": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "dev": "tsx src/cli.ts",
+    "lint": "tsc --noEmit",
+    "start": "node dist/cli.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@azure/msal-node": "^2.13.1",
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "openai": "^4.78.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.7",
+    "rimraf": "^5.0.9",
+    "tsx": "^4.17.0",
+    "typescript": "^5.6.3"
+  }
+}
