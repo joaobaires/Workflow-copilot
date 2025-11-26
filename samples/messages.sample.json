@@ -1,0 +1,40 @@
+[
+  {
+    "id": "sample-message-1",
+    "createdDateTime": "2025-11-26T08:15:00Z",
+    "from": {
+      "user": {
+        "id": "user-123",
+        "displayName": "Alice Program Manager"
+      }
+    },
+    "body": {
+      "contentType": "html",
+      "content": "<p>Reminder that the customer onboarding playbook update is due today. Can someone confirm status?</p>"
+    },
+    "mentions": []
+  },
+  {
+    "id": "sample-message-2",
+    "createdDateTime": "2025-11-26T09:05:00Z",
+    "from": {
+      "user": {
+        "id": "user-456",
+        "displayName": "Ben Support Lead"
+      }
+    },
+    "body": {
+      "contentType": "html",
+      "content": "<p>@Jenna Ops we still need escalation summary for ticket 48291.</p>"
+    },
+    "mentions": [
+      {
+        "mentioned": {
+          "user": {
+            "displayName": "Jenna Ops"
+          }
+        }
+      }
+    ]
+  }
+]
